@@ -1,0 +1,5 @@
+projects:
+  - name: libs
+    clonePath: libs
+    repo: git@github.com/xpia365/nest-libraries-be.git
+    includeOnly: [libs]
