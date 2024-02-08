@@ -1,14 +1,14 @@
 import { Inject, Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 
-import { DASHBOARD_MODULE_PROVIDER } from './dashboard.const';
-import { DashboardOptions } from './dashboard.interface';
+import { BULLBOARD_UI_MODULE_PROVIDER } from './bullboard-ui.const';
+import { BullBoardUiOptions } from './bullboard-ui.interface';
 
 @Injectable()
-export class AuthDashboard implements NestMiddleware {
+export class AuthBullBoardUi implements NestMiddleware {
   constructor(
-    @Inject(DASHBOARD_MODULE_PROVIDER)
-    private readonly dashboardUiOptions: DashboardOptions,
+    @Inject(BULLBOARD_UI_MODULE_PROVIDER)
+    private readonly dashboardUiOptions: BullBoardUiOptions,
   ) {}
 
   use(req: Request, res: Response, next: NextFunction): void {
