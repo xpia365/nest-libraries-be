@@ -1,8 +1,8 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { UnauthorizedException } from '@xpia/infra-exception';
 
 import { IsAnonymousEndpoint } from './index';
-import { UnauthorizedException } from 'src/exception';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

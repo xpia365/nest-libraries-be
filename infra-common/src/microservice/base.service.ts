@@ -4,9 +4,10 @@ import { lastValueFrom, of } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 import { v4 } from 'uuid';
 import { Logger } from 'winston';
+import { BadRequestException, Exception } from '@xpia/infra-exception';
+
 import { MicroserviceRequest } from './request';
 import { MicroserviceResponse } from './response';
-import { BadRequestException, Exception } from 'src/exception';
 
 @Injectable()
 export class BaseMicroService {

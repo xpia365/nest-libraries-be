@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { UnauthorizedException } from 'src/exception';
 import { NestRole } from './roles.decorator';
+import { UnauthorizedException } from '@xpia/infra-exception';
 
 export type CareHeadersInfo = {
   careId: string;
