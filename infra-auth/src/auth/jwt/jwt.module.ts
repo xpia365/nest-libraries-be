@@ -13,7 +13,7 @@ import { JwtAuthMiddleware } from './jwt.middleware';
 @Global()
 @Module({})
 export class AuthJwtModule implements NestModule {
-  static forRootAsync(): DynamicModule {
+  static register(): DynamicModule {
     return {
       global: true,
       module: AuthJwtModule,
@@ -24,7 +24,6 @@ export class AuthJwtModule implements NestModule {
   }
 
   configure(consumer: MiddlewareConsumer) {
-    // Apply JwtAuthMiddleware globally
     consumer.apply(JwtAuthMiddleware).forRoutes('*');
   }
 }
