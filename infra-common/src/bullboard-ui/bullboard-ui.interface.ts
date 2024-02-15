@@ -1,5 +1,5 @@
 export class BullBoardUiOptions {
-  routes!: string;
+  route: string;
   path!: string;
   username!: string;
   password!: string;
@@ -7,7 +7,7 @@ export class BullBoardUiOptions {
 }
 
 export interface BullBoardUiModuleAsyncOptions {
-  routes: string;
+  route: string;
   useFactory?: (
     ...args: any[]
   ) => Promise<BullBoardUiOptions> | BullBoardUiOptions;

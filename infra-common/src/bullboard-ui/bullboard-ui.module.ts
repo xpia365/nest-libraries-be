@@ -21,7 +21,7 @@ export class BullBoardUiModule {
   static dynamicRoute: string;
 
   public static register(options: BullBoardUiOptions): DynamicModule {
-    this.dynamicRoute = options.routes;
+    this.dynamicRoute = options.route;
 
     return {
       module: BullBoardUiModule,
@@ -36,10 +36,12 @@ export class BullBoardUiModule {
   public static forRootAsync(
     options: BullBoardUiModuleAsyncOptions,
   ): DynamicModule {
+    const { route } = options;
+
     return {
       imports: [
         BullBoardModule.forRoot({
-          route: options.routes,
+          route,
           adapter: ExpressAdapter,
         }),
       ],
@@ -49,8 +51,8 @@ export class BullBoardUiModule {
           provide: BULLBOARD_UI_MODULE_PROVIDER,
           useFactory: async (configService: ConfigService) => {
             const config = await options.useFactory(configService);
-            this.dynamicRoute = config.routes;
-            return config;
+            this.dynamicRoute = route;
+            return { ...config, route };
           },
           inject: options.inject || [],
         },

@@ -12,12 +12,11 @@ export class AuthBullBoardUi implements NestMiddleware {
   ) {}
 
   use(req: Request, res: Response, next: NextFunction): void {
-    const { path, routes, username, password, secret } =
-      this.dashboardUiOptions;
+    const { path, route, username, password, secret } = this.dashboardUiOptions;
 
     if (req.body.username === username && req.body.password === password) {
       res.cookie(username, secret, { signed: true });
-      res.redirect(routes);
+      res.redirect(route);
     } else if (req.signedCookies && req.signedCookies[username]) {
       next();
     } else {
