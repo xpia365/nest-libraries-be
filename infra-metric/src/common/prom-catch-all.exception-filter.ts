@@ -3,13 +3,10 @@ import {
   ArgumentsHost,
   HttpException,
   HttpStatus,
-  Inject,
 } from '@nestjs/common';
 import { BaseExceptionFilter } from '@nestjs/core';
-import { CounterMetric, PromModuleOptions } from '../interfaces';
+import { CounterMetric } from '../interfaces';
 import { normalizePath } from '../utils';
-import { PromCounter } from '.';
-import { DEFAULT_PROM_OPTIONS } from './prom.constants';
 import { PromService } from '../prom.service';
 
 function getBaseUrl(url?: string) {

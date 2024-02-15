@@ -1,7 +1,5 @@
 import { Module, OnApplicationBootstrap } from '@nestjs/common';
 import { HlsService } from './hls.service';
-import path from 'path';
-import { selectEntries } from './utils';
 
 @Module({
   providers: [HlsService],

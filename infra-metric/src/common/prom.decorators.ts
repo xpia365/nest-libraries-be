@@ -6,7 +6,7 @@ import { IMetricArguments, CounterMetric } from '../interfaces';
  */
 export const PromMethodCounter = (params?: IMetricArguments) => {
   return (
-    target: Object,
+    target: unknown,
     propertyKey: string | symbol,
     descriptor: TypedPropertyDescriptor<(...args: any[]) => any>,
   ) => {
@@ -35,7 +35,7 @@ export const PromMethodCounter = (params?: IMetricArguments) => {
  * @param ctor
  */
 export const PromInstanceCounter = (params?: IMetricArguments) => {
-  return <T extends { new (...args: any[]): {} }>(ctor: T) => {
+  return <T extends { new (...args: any[]): any }>(ctor: T) => {
     const name = `app_${ctor.name}_instances_total`;
     const help = `app_${ctor.name} object instances total`;
     let counterMetric: CounterMetric;
