@@ -15,7 +15,6 @@ import { JwtAuthMiddleware } from './jwt.middleware';
 export class AuthJwtModule implements NestModule {
   static register(): DynamicModule {
     return {
-      global: true,
       module: AuthJwtModule,
       imports: [ConfigModule],
       providers: [JwtService, JwtAuthMiddleware],
