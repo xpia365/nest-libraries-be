@@ -7,6 +7,7 @@ export class BullBoardUiOptions {
 }
 
 export interface BullBoardUiModuleAsyncOptions {
+  routes: string;
   useFactory?: (
     ...args: any[]
   ) => Promise<BullBoardUiOptions> | BullBoardUiOptions;

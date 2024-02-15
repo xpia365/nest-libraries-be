@@ -5,6 +5,8 @@ import {
   Global,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { BullBoardModule } from '@bull-board/nestjs';
+import { ExpressAdapter } from '@bull-board/express';
 
 import { AuthBullBoardUi } from './auth.middleware';
 import { BULLBOARD_UI_MODULE_PROVIDER } from './bullboard-ui.const';
@@ -35,6 +37,12 @@ export class BullBoardUiModule {
     options: BullBoardUiModuleAsyncOptions,
   ): DynamicModule {
     return {
+      imports: [
+        BullBoardModule.forRoot({
+          route: options.routes,
+          adapter: ExpressAdapter,
+        }),
+      ],
       module: BullBoardUiModule,
       providers: [
         {
